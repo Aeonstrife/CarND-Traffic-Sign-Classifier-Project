@@ -23,43 +23,39 @@ The goals / steps of this project are the following:
 
 --
 
-You're reading it! and here is a link to my [project code](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
+You're reading it! and here is a link to my [project code](https://github.com/Aeonstrife/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
 
 ###Data Set Summary & Exploration
 
-####1. Provide a basic summary of the data set and identify where in your code the summary was done. In the code, the analysis should be done using python, numpy and/or pandas methods rather than hardcoding results manually.
-
 The code for this step is contained in the second code cell of the IPython notebook.  
 
-I used the pandas library to calculate summary statistics of the traffic
-signs data set:
+* The size of training set is ?  
+Number of training examples = 34799  
+* The size of test set is ?  
+Number of testing examples = 12630
+* The shape of a traffic sign image is ?  
+Image data shape = (32, 32, 3)
+* The number of unique classes/labels in the data set is ?  
+Number of classes = 43
 
-* The size of training set is ?
-* The size of test set is ?
-* The shape of a traffic sign image is ?
-* The number of unique classes/labels in the data set is ?
+Also present in the dataset was a validation set (which I would later use).
 
 ####2. Include an exploratory visualization of the dataset and identify where the code is in your code file.
 
-The code for this step is contained in the third code cell of the IPython notebook.  
-
+The code for this step is contained in the third and fourth code cells of the IPython notebook.  
+A random image from the training set is displayed followed by a histogram depicting the distribution of training data across the 43 classes (of traffic signals).
+I used numpy for the histogram and matplotlib.pyplot libraries for the image dislay.
 Here is an exploratory visualization of the data set. It is a bar chart showing how the data ...
 
 ![alt text][image1]
 
 ###Design and Test a Model Architecture
 
-####1. Describe how, and identify where in your code, you preprocessed the image data. What tecniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc.
+####1. Describe how, and identify where in your code, you preprocessed the image data. What tecniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc.  
 
-The code for this step is contained in the fourth code cell of the IPython notebook.
+As a first step, I decided to convert the images to grayscale because dealing with 1 channel only would decrease the time taken for my network to train. I used a numpy sum of the different color channels divided by 3 to convert the images to grayscale. This is not exactly the best way to do it, but it got the job done.  
 
-As a first step, I decided to convert the images to grayscale because ...
-
-Here is an example of a traffic sign image before and after grayscaling.
-
-![alt text][image2]
-
-As a last step, I normalized the image data because ...
+As a last step, I normalized the data so that it was spread out around 0 to avoid dealing with extremely high or extremely low values.
 
 ####2. Describe how, and identify where in your code, you set up training, validation and testing data. How much data was in each set? Explain what techniques were used to split the data into these sets. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, identify where in your code, and provide example images of the additional data)
 
